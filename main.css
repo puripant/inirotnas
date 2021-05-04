@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  background-color: azure;
+  display: block;
+  font-family: sans-serif;
+  font-size: 10px;
+  text-align: center;
+}
+
+#board {
+  width: 250px;
+  margin: 50px auto;
+}
+.cell {
+  display: inline-block;
+  width: 46px;
+  height: 46px;
+  margin: 2px;
+  box-sizing: border-box;
+  /* border: 1px solid azure; */
+  /* background-color: seagreen; */
+}
+.player0::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 5px solid red;
+  margin: 12.5px auto auto -10px;
+}
+.player1::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 5px solid blue;
+  margin: 12.5px auto auto -10px;
+}
+.player0.selected::after {
+  border-width: 10px;
+}
+.player1.selected::after {
+  border-width: 10px;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
