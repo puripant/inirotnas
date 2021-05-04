@@ -23,7 +23,8 @@ const update = () => {
 update()
 
 const player_num  = 2 //up to 4
-const player_colors = ["red", "blue"]
+const player_colors = ["Crimson", "RoyalBlue"]
+const player_color_names = ["Red", "Blue"]
 let player_pos = [[6, 18], [8, 16]]
 const update_player = () => {
   nodes.forEach(n => {
@@ -81,6 +82,7 @@ const ready = (step, selected) => {
   return neighbors
 }
 
+const step_names = ["move", "build"]
 let turn = 0
 let step = 0
 let current_player_pos = -1
@@ -126,5 +128,14 @@ cells.on("click", function(event, d) {
     }
     step = (step + 1) % 2
   }
+  set_status()
   neighbors = ready(step, current_player_pos >= 0 ? current_player_pos : undefined)
 })
+
+const status = d3.select(".status")
+const set_status = () => {
+  status
+    .style("color", player_colors[turn])
+    .html(`<span class="bold">${player_color_names[turn]}</span> turn to <span class="bold">${step_names[step]}</span>`)
+}
+set_status()
